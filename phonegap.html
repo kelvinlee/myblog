@@ -57,7 +57,22 @@ $ cordova platform add android</code></pre>
 <p>加入多少模块,build就会生成多少,如果只想单一生成某个,可以在后面加入ios什么的</p>
 <pre><code>$ cordova build ios</code></pre>
 <p>还有更详细的命令,可以查看<a target="_blank" href="http://docs.phonegap.com/en/edge/guide_cli_index.md.html#The%20Command-line%20Interface">这里</a>.</p>
-<h3>持续学习 Mark here (2013/08/03 04:45)</h3>
+<p>这里要说明一下安卓的sdk安装(真不是一般难用.)</p>
+<p>首先去官网下载 SDK http://developer.android.com/sdk/ , 然后将SDK解压,放到Mac系统的跟目录,也就是你的 Macintosh HD 盘符下,例如建立文件夹 AndroidSDK,然后将解压后的sdk文件夹内的文件copy到这里面.</p>
+<p>打开你的Terminal,保持当前目录在 ~ 里.</p>
+<pre><code>$ pico .bash_profile</code></pre>
+<p>如果文件不存在,则内容是空的,如果存在就修改,在文本的最后一行增加</p>
+<pre><code>export PATH=$PATH:/AndroidSDK/tools</code></pre>
+<p>control+x 保存,之后输入y 确认, 退出并重启Terminal,之后输入</p>
+<pre><code>$ android</code></pre>
+<p>如果弹出窗口,则安装成功. </p>
+<pre><code>$ cordova platform add android</code></pre>
+<p>如果以上代码出现错误信息如下</p>
+<pre><code>Please install Android target 17 (the Android 4.2 SDK). Make sure you have the latest Android tools installed as well. Run `android` from your command-line to install/update any missing SDKs or tools.</code></pre>
+<p>那么恭喜你,你报错了,哈哈,因为Android刚刚出的4.3系统,而PhoneGap的 api对应的还是老版本4.2,所以你还需要安装一个Android 4.2.2 API 17.</p>
+<p>在Android SDK Manager 中选择 Android 4.2.2 API 17</p>
+<p>OK,Android的SDK 就安装好了.</p>
+<h3>持续学习 Mark here (2013/08/05 14:55)</h3>
       </section>
     </div>
 
