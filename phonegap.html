@@ -74,6 +74,13 @@ $ cordova platform add android</code></pre>
 <p>在Android SDK Manager 中选择 Android 4.2.2 API 17</p>
 <p>OK,Android的SDK 就安装好了.</p>
 <h3>持续学习 Mark here (2013/08/05 14:55)</h3>
+<p>今天在做一个小demo的时候发现了一个小问题,因为之前说过下面个这个命令.</p>
+<pre><code>$ cordova platform add</code></pre>
+<p>这里有一个小细节需要注意,在创建的时候,一定不能使用中文做为应用的名字,否则就会出现下面的错误信息:</p>
+<pre><code>Error: An error occured during creation of android sub-project. An unexpected error occurred: "$ANDROID_BIN" create project --target $TARGET --path "$PROJECT_PATH" --package $PACKAGE --activity $ACTIVITY >&/dev/null exited with 1
+Deleting project...</code></pre>
+<p>需要改应用名字可以找到www文件夹下的config.xml来修改即可.</p>
+<h3>Mark 2013-8-6 下午3:14</h3>
       </section>
     </div>
 
