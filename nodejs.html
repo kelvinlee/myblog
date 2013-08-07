@@ -53,6 +53,13 @@ free.on('exit',function(code,signal) {
 <p></p>
 <p>理论上就已经更新完成了,但是我们知道node一旦执行,不停止进程的话,那么app.js等核心后台js则一直是老的. 所以这里需要注意停止node再重新执行.</p>
 <h3>Mark 2013-8-6 下午7:06</h3>
+<p>可喜可贺,上面的代码是可行的,今天已经正式测试成功,不过跟上回说的一样,app.js在运行的时候是无法更新的.</p>
+<p>不过既然能执行git,就同样可以执行node.所以我们先用forever运行app.js,然后当git执行完成的时候我们再执行</p>
+<pre><code>$ forever restartall</code></pre>
+<p>这样app.js就重新运行了,我们也可以继续使用了.</p>
+<p>至此自动化更新node项目,完成了.</p>
+<p>我们可以直接用git来提交,而服务器直接更新了.</p>
+<h3>Mark 2013-8-7 下午3:52</h3>
       </section>
     </div>
 
