@@ -31,20 +31,21 @@
 <a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Android webapp 学习中.</h3>
 
 <p>问题说过了 直接说解决方法吧.</p>
+<p>这里有个前提需要注意一下,就是只有在 viewport 里的width值固定,并且不设置 min max inti 大小的情况下才会出现.</p>
 <pre><code>orientationChange = ->
-        switch window.orientation
-          when 0 then reloadmeta(640,0)
-          when 90 then reloadmeta(641,"no")
-          when -90 then reloadmeta(641,"no")
-      reloadmeta = (px,us)-> 
-        setTimeout ->
-          viewport = document.getElementById "viewport" 
-          # $("head").append('<mete name="viewport" content="width=1024, user-scalable=no, target-densitydpi=device-dpi" >')
-          viewport.content = "width="+px+", user-scalable="+us+", target-densitydpi=device-dpi"
-        ,100
-      window.addEventListener 'load', ->
-        orientationChange()
-        window.onorientationchange = orientationChange</code></pre>
+switch window.orientation
+    when 0 then reloadmeta(640,0)
+    when 90 then reloadmeta(641,"no")
+    when -90 then reloadmeta(641,"no")
+reloadmeta = (px,us)-> 
+  setTimeout ->
+    viewport = document.getElementById "viewport" 
+    # $("head").append('<mete name="viewport" content="width=1024, user-scalable=no, target-densitydpi=device-dpi" >')
+    viewport.content = "width="+px+", user-scalable="+us+", target-densitydpi=device-dpi"
+  ,100
+window.addEventListener 'load', ->
+  orientationChange()
+  window.onorientationchange = orientationChange</code></pre>
       </section>  
     </div>
 
