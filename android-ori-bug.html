@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>关于Android 横竖屏切换的时候会无视[user-scalable=no]产生的Bug解决方案.</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Android</h1> 
+
+        <section id="downloads">
+          <a href="https://github.com/kelvinlee/myblog/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/kelvinlee/myblog/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/kelvinlee/myblog" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h3>
+<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Android webapp 学习中.</h3>
+
+<p>问题说过了 直接说解决方法吧.</p>
+<pre><code>orientationChange = ->
+        switch window.orientation
+          when 0 then reloadmeta(640,0)
+          when 90 then reloadmeta(641,"no")
+          when -90 then reloadmeta(641,"no")
+      reloadmeta = (px,us)-> 
+        setTimeout ->
+          viewport = document.getElementById "viewport" 
+          # $("head").append('<mete name="viewport" content="width=1024, user-scalable=no, target-densitydpi=device-dpi" >')
+          viewport.content = "width="+px+", user-scalable="+us+", target-densitydpi=device-dpi"
+        ,100
+      window.addEventListener 'load', ->
+        orientationChange()
+        window.onorientationchange = orientationChange</code></pre>
+      </section>  
+    </div>
+
+    
+  </body>
+</html>
